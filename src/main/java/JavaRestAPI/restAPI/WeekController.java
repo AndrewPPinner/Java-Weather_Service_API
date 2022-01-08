@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WeekController {
 
     @GetMapping("/weather/week")
-    public List<Week> week(@RequestParam(value = "city", defaultValue = "Mogadore") String city) {
+    public List<Week> week(@RequestParam(value = "city") String city) {
         List<Week> weekList = new ArrayList<Week>();
         try {
             Document html = Jsoup.connect("https://www.google.com/search?q=" + city + "weather").get();

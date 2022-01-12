@@ -25,7 +25,7 @@ public class WeatherController {
             Elements today = html.select("#wob_wc");
             city = today.select("#wob_loc").text();
             current = today.select("#wob_tm").text();
-            high = today.select("[style='display:inline']").first().text();
+            high = today.select("[style='display:inline']").get(2).text();
             low = today.select("[style='display:inline']").get(3).text();
             icon = today.select(".wob_tci").attr("src");
             condition =  today.select(".wob_tci").attr("alt");

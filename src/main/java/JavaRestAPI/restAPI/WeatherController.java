@@ -19,9 +19,9 @@ public class WeatherController {
     
 
     @GetMapping("/weather")
-    public Weather weather(@RequestParam(value = "city") String city){
+    public Weather weather(@RequestParam(value = "loc") String city){
         try {
-            Document html = Jsoup.connect("https://www.google.com/search?q=" + city + "weather").get();
+            Document html = Jsoup.connect("https://www.google.com/search?q=" + city + "%20weather").get();
             Elements today = html.select("#wob_wc");
             city = today.select("#wob_loc").text();
             current = today.select("#wob_tm").text();

@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class WeekController {
 
     @GetMapping("/weather/week")
-    public List<Week> week(@RequestParam(value = "city") String city) {
+    public List<Week> week(@RequestParam(value = "loc", required = false) String city) {
         List<Week> weekList = new ArrayList<Week>();
         try {
-            Document html = Jsoup.connect("https://www.google.com/search?q=" + city + "weather").get();
+            Document html = Jsoup.connect("https://www.google.com/search?q=" + city + "%20weather").get();
             Elements week = html.select(".wob_df");
             int i = -1;
             for (Element element: week) {

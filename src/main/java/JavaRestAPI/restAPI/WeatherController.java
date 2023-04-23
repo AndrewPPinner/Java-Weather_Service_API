@@ -67,7 +67,7 @@ public class WeatherController {
         return weekList;
     }
 
-    @GetMapping("/ip")
+    @GetMapping("/weather/ip")
     public HashMap<String, LogModel> ip() {
         return MemoryLogUtil.ipMap;
     }

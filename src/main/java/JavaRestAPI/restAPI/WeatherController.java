@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import JavaRestAPI.restAPI.Models.Icons;
+import JavaRestAPI.restAPI.Models.Weather;
+import JavaRestAPI.restAPI.Models.Week;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

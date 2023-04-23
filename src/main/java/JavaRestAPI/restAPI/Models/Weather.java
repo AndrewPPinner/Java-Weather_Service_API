@@ -1,14 +1,16 @@
-package JavaRestAPI.restAPI;
+package JavaRestAPI.restAPI.Models;
 
-public class Week {
-    public final String day;
+public class Weather {
+    public final String city;
+    public final String current;
     public final String high;
     public final String low;
     public final String icon;
     public final String condition;
  
-    public Week(String day, String high, String low, String icon, String condition) {
-        this.day = day;
+    public Weather(String city, String current, String high, String low, String icon, String condition) {
+        this.city = city;
+        this.current = current;
         this.high = high;
         this.low = low;
         this.icon = icon;
@@ -16,8 +18,12 @@ public class Week {
 
     }
 
-    public String getDay() {
-        return day;
+    public String getCity() {
+        return city;
+    }
+
+    public String getCurrent() {
+        return current;
     }
 
     public String getHigh() {

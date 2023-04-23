@@ -2,8 +2,11 @@ package JavaRestAPI.restAPI;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import JavaRestAPI.restAPI.Logging.LogModels.LogModel;
+import JavaRestAPI.restAPI.Logging.MemoryLogUtil;
 import JavaRestAPI.restAPI.Models.Icons;
 import JavaRestAPI.restAPI.Models.Weather;
 import JavaRestAPI.restAPI.Models.Week;
@@ -62,6 +65,11 @@ public class WeatherController {
             e.printStackTrace();
         }
         return weekList;
+    }
+
+    @GetMapping("/ip")
+    public HashMap<String, LogModel> ip() {
+        return MemoryLogUtil.ipMap;
     }
 
 }

@@ -73,6 +73,7 @@ public class WeatherController {
     @PostMapping("/weather/deploy")
     public String triggerDeploy(@RequestBody String code) throws InterruptedException, IOException {
         if (!code.equals(System.getenv("deploy_auth_code"))) {
+            System.getenv("deploy_auth_code");
             System.out.println(code);
             return "Incorrect auth code";
         }

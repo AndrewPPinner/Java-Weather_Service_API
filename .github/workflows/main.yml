@@ -2,7 +2,7 @@ name: 'Call REST API when a file is pushed'
 
 on:
   push:
-    branches: [ main ] # match specific branch
+    branches: [ master ] # match specific branch
 
 jobs:
   prepare-files:

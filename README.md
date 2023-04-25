@@ -1,4 +1,8 @@
 Feel free to utilize the API, please refrain from overuse.
+<br/>
+Utilization is limited to 50 calls a day. If you require more please reach out 
+to request a limit increase.
+<br/>
 
 Documentation is straight forward
 <br/>

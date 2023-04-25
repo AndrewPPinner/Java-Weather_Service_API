@@ -8,7 +8,10 @@ public class Logger implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String ip = request.getRemoteAddr();
+        String ip = request.getHeader("X-Forwarded-For");
+        ip = ip!=null && ip.contains(",")
+                ? ip.split(",")[0]
+                : ip;
         MemoryLogUtil.Log(ip);
         if (MemoryLogUtil.IsOverused(ip)){
             response.getWriter().write("Daily request limit met. Please contact the maintainer or lower request volume.");

@@ -13,3 +13,4 @@ jobs:
         with:
           url: 'andrew-pinner.asuscomm.com/weather?loc=28105'
           method: 'GET'
+          timeout: 20000

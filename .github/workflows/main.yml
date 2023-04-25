@@ -5,7 +5,7 @@ on:
     branches: [ master ] # match specific branch
 
 jobs:
-  prepare-files:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Make an API call

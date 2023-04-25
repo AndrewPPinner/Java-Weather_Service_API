@@ -14,9 +14,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class WeatherController {
@@ -70,6 +68,16 @@ public class WeatherController {
     @GetMapping("/weather/ip")
     public HashMap<String, LogModel> ip() {
         return MemoryLogUtil.ipMap;
+    }
+
+    @PostMapping("/weather/deploy")
+    public String triggerDeploy(@RequestBody String code) throws InterruptedException, IOException {
+        if (!code.equals(System.getenv("deploy_auth_code"))) {
+            return "Incorrect auth code";
+        }
+        ProcessBuilder pb = new ProcessBuilder("/home/server/code/scripts/pull_and_deploy.sh");
+        Process process = pb.start();
+        return "Deploying Completed";
     }
 
 }

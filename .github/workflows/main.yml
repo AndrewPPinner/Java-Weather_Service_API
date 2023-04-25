@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Make an API call
+        id: deployRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://andrew-pinner.asuscomm.com/weather?loc=28105'
-          method: 'GET'
-          timeout: 20000
+          url: 'https://andrew-pinner.asuscomm.com/weather/deploy'
+          method: 'POST'
+          data: '${{ secrets.DEPLOY_PASSWORD}}'
+      - name: Show Response
+        run: |
+          echo ${{ steps.deployRequest.outputs.response }}

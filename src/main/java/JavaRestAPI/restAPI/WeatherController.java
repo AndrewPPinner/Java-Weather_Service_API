@@ -36,7 +36,7 @@ public class WeatherController {
             low = today.select("[style='display:inline']").get(3).text();
             icon = today.select(".wob_tci").attr("src");
             condition =  today.select(".wob_tci").attr("alt");
-            System.out.print("Killing process earlier");
+            System.out.print("Killing process earlier even earlier");
         } catch (IOException e) {
             e.printStackTrace();
         }

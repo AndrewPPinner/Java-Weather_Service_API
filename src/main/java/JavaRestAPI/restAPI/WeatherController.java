@@ -82,11 +82,10 @@ public class WeatherController {
                 pb.redirectErrorStream(true);
                 pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
                 pb.inheritIO();
-                Process process = pb.start();
 
                 pb.command("bash", "-c", "cd ~/code/restAPI/target/myprocess.pid");
 
-                process = pb.start();
+                Process process = pb.start();
 
                 pb.command("bash", "-c", "pwd");
 

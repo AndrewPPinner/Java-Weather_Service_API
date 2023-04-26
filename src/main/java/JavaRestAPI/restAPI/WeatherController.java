@@ -36,7 +36,7 @@ public class WeatherController {
             low = today.select("[style='display:inline']").get(3).text();
             icon = today.select(".wob_tci").attr("src");
             condition =  today.select(".wob_tci").attr("alt");
-            System.out.print("I think this will work?");
+            System.out.print("I think this will work? I forgot a step..");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -77,7 +77,7 @@ public class WeatherController {
             return "Incorrect auth code";
         }
         new Thread(() -> {
-            ProcessBuilder pb = new ProcessBuilder("/home/server/code/scripts/pull_and_deploy.sh");
+            ProcessBuilder pb = new ProcessBuilder();
             try {
                 pb.redirectErrorStream(true);
                 pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);

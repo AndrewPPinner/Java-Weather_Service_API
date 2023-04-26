@@ -83,13 +83,9 @@ public class WeatherController {
                 pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
                 pb.inheritIO();
 
-                pb.command("bash", "-c", "cd ~/code/restAPI/target/myprocess.pid");
+                pb.command("bash", "-c", "ls");
 
                 Process process = pb.start();
-
-                pb.command("bash", "-c", "pwd");
-
-                process = pb.start();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

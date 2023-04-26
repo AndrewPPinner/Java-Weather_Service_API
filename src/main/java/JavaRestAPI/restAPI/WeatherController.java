@@ -36,7 +36,7 @@ public class WeatherController {
             low = today.select("[style='display:inline']").get(3).text();
             icon = today.select(".wob_tci").attr("src");
             condition =  today.select(".wob_tci").attr("alt");
-            System.out.print("Killing process earlier even earlier");
+            System.out.print("Killing process earlier even earlier even even even evan");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +79,7 @@ public class WeatherController {
         new Thread(() -> {
             ProcessBuilder pb = new ProcessBuilder("/home/server/code/scripts/pull_and_deploy.sh");
             try {
+                pb.redirectErrorStream(true);
                 Process process = pb.start();
             } catch (IOException e) {
                 throw new RuntimeException(e);

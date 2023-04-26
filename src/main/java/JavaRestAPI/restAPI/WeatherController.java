@@ -77,12 +77,16 @@ public class WeatherController {
             return "Incorrect auth code";
         }
         new Thread(() -> {
-            ProcessBuilder pb = new ProcessBuilder("/home/server/code/scripts/pull_and_deploy.sh");
+            ProcessBuilder pb = new ProcessBuilder("bash", "-c", "cat ~/code/restAPI/target/myprocess.pid");
             try {
                 pb.redirectErrorStream(true);
                 pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
                 pb.inheritIO();
                 Process process = pb.start();
+
+                pb.command("/home/server/code/scripts/pull_and_deploy.sh");
+
+                process = pb.start();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

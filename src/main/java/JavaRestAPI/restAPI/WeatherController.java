@@ -71,12 +71,18 @@ public class WeatherController {
     }
 
     @PostMapping("/weather/deploy")
-    public String triggerDeploy(@RequestBody String code) throws InterruptedException, IOException {
+    public String triggerDeploy(@RequestBody String code) {
         if (!code.equals(System.getenv("deploy_auth_code"))) {
             return "Incorrect auth code";
         }
-        ProcessBuilder pb = new ProcessBuilder("/home/server/code/scripts/pull_and_deploy.sh");
-        Process process = pb.start();
+        new Thread(() -> {
+            ProcessBuilder pb = new ProcessBuilder("/home/server/code/scripts/pull_and_deploy.sh");
+            try {
+                Process process = pb.start();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
         return "Deploying Completed";
     }
 

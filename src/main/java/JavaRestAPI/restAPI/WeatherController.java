@@ -1,6 +1,7 @@
 package JavaRestAPI.restAPI;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,6 +68,11 @@ public class WeatherController {
 
     @GetMapping("/weather/ip")
     public HashMap<String, LogModel> ip() {
+        MemoryLogUtil.ipMap.forEach((k, v) -> {
+            if (v.requestDate.isBefore(LocalDate.now().minusDays(5))){
+                MemoryLogUtil.ipMap.remove(k);
+            }
+        });
         return MemoryLogUtil.ipMap;
     }
 

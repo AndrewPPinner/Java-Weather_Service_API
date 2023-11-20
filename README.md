@@ -14,3 +14,9 @@ https://andrew-pinner.asuscomm.com/weather?loc= [city,state] or [zipcode]
 <h2><b><ins>Weekly Weather</ins></b></h2>
 <br/>
 https://andrew-pinner.asuscomm.com/weather/week?loc=  [city,state] or [zipcode]
+<br/>
+Current bugs - 
+<br/>
+City name is returning other text including the city name.
+
+
